@@ -21,7 +21,7 @@
 		ED2C689122BF5F7E00D55E02 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C688922BF5F7E00D55E02 /* Result.swift */; };
 		ED2C689222BF5F7E00D55E02 /* SessionPinningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C688A22BF5F7E00D55E02 /* SessionPinningDelegate.swift */; };
 		ED2C689422BF5F7E00D55E02 /* RawResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C688C22BF5F7E00D55E02 /* RawResponse.swift */; };
-		ED2C68A322BF946E00D55E02 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C68A122BF93F700D55E02 /* Requester.swift */; };
+		ED2C68A422BF951000D55E02 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C68A122BF93F700D55E02 /* Requester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -242,7 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED2C68A322BF946E00D55E02 /* Requester.swift in Sources */,
+				ED2C68A422BF951000D55E02 /* Requester.swift in Sources */,
 				ED2C688E22BF5F7E00D55E02 /* ErrorInfo.swift in Sources */,
 				ED2C689122BF5F7E00D55E02 /* Result.swift in Sources */,
 				ED2C688F22BF5F7E00D55E02 /* Loading.swift in Sources */,

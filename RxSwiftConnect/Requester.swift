@@ -68,7 +68,7 @@ public class Requester:NSObject{
         return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
         
     }
- 
+    
     func setupLoading(isShow:Bool){
         DispatchQueue.main.async {
             if isShow, let topView = UIApplication.topViewController(){
@@ -76,7 +76,7 @@ public class Requester:NSObject{
             }
         }
     }
- 
+    
     
     public func call<DataResult:Decodable, CustomError:DecodError>(_ request: URLRequest, config:URLSessionConfiguration,isPreventPinning:Bool)
         -> Observable<Result<DataResult, CustomError>> {
@@ -145,19 +145,15 @@ public class Requester:NSObject{
                         if let httpResponse = response as? HTTPURLResponse{
                             let statusCode = httpResponse.statusCode
                             
-                            do {
-                                let _data = data ?? Data()
-                                if statusCode == 200 {
-                                    let plainResponse = RawResponse(statusCode: statusCode, data: _data)
-                                    observer.onNext(Result.successful(plainResponse))
-                                } else {
-                                    let customError = CustomError(responseCode: httpResponse.statusCode)
-                                    observer.onNext(Result.failure(customError))
-                                }
-                            } catch {
+                            let _data = data ?? Data()
+                            if statusCode == 200 {
+                                let plainResponse = RawResponse(statusCode: statusCode, data: _data)
+                                observer.onNext(Result.successful(plainResponse))
+                            } else {
                                 let customError = CustomError(responseCode: httpResponse.statusCode)
                                 observer.onNext(Result.failure(customError))
                             }
+                            
                         }else{
                             let customError = CustomError(unknowError: "Error URLSession")
                             observer.onNext(Result.failure(customError))

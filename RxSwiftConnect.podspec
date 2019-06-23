@@ -33,7 +33,7 @@ s.dependency 'SwiftyGif'
 s.source_files = "RxSwiftConnect/*"
 
 # 9
-s.resources = "RWPickFlavor/*"
+s.resources = "RxSwiftConnect/*"
 
 # 10
 s.swift_version = "5.0"

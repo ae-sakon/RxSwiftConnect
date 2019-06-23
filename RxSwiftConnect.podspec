@@ -30,7 +30,7 @@ s.dependency 'RxCocoa', '~> 4.4'
 s.dependency 'SwiftyGif'
 
 # 8
-s.source_files = "RxSwiftConnect/*"
+s.source_files = "RxSwiftConnect/*.{swift}"
 
 # 9
 s.resources = "RxSwiftConnect/Resource/*"

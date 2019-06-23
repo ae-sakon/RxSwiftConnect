@@ -8,10 +8,10 @@ s.summary = "RxSwiftConnect is similar Retrofit on Android and we can call Retro
 s.requires_arc = true
 
 # 2
-s.version = "2.1.0"
+s.version = "2.2.0"
 
 # 3
-s.license = { :type => "Apache License 2.0", :file => "LICENSE" }
+s.license = { :type => "Apache License 2.0", :file => "/Users/sakon/iOS/Libraries/RxSwiftConnect/license.txt" }
 
 # 4 - Replace with your name and e-mail address
 s.author = { "Keegan Rush" => "sakon@megazy.com" }

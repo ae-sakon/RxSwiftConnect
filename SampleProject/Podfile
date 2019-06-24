@@ -1,0 +1,8 @@
+platform :ios, '10.0'
+use_frameworks!
+target 'SampleProject' do
+    pod 'RxSwift', '~> 5'
+    pod 'RxCocoa', '~> 5'
+    pod 'SwiftyGif'
+    pod 'RxSwiftConnect', '~> 2.6'
+end

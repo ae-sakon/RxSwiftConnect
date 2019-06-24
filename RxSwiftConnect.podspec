@@ -25,8 +25,8 @@ s.source = { :git => "https://github.com/ae-sakon/RxSwiftConnect.git",
 
 # 7
 #s.framework = "UIKit"
-s.dependency 'RxSwift', '~> 4.4'
-s.dependency 'RxCocoa', '~> 4.4'
+s.dependency 'RxSwift', '~> 5'
+s.dependency 'RxCocoa', '~> 5'
 s.dependency 'SwiftyGif'
 
 # 8

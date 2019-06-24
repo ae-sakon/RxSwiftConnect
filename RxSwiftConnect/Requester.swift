@@ -18,7 +18,7 @@ public class Requester:NSObject{
     private let sessionConfig:URLSessionConfiguration
     private let preventPinning:Bool
     
-    init(initBaseUrl:String,timeout:Int,isPreventPinning:Bool,initSessionConfig:URLSessionConfiguration){
+    public init(initBaseUrl:String,timeout:Int,isPreventPinning:Bool,initSessionConfig:URLSessionConfiguration){
         self.baseUrl = initBaseUrl
         //self.requester = initRequester
         self.preventPinning = isPreventPinning
@@ -26,7 +26,7 @@ public class Requester:NSObject{
         self.sessionConfig.timeoutIntervalForRequest = TimeInterval(timeout)
     }
     
-    func post<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,header:[String:String]? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
+    public func post<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,header:[String:String]? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
         
         setupLoading(isShow: loading)
         
@@ -40,7 +40,7 @@ public class Requester:NSObject{
         return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
         
     }
-    func get<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
+    public func get<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
         
         setupLoading(isShow: loading)
         
@@ -55,7 +55,7 @@ public class Requester:NSObject{
         
     }
     
-    func getRaw<CustomError:DecodError>(path:String,loading:Bool = true) -> Observable<Result<RawResponse, CustomError>>{
+    public func getRaw<CustomError:DecodError>(path:String,loading:Bool = true) -> Observable<Result<RawResponse, CustomError>>{
         setupLoading(isShow: loading)
         var requestParameter = RequestParameter(
             httpMethod: .get,
@@ -78,7 +78,7 @@ public class Requester:NSObject{
     }
     
     
-    public func call<DataResult:Decodable, CustomError:DecodError>(_ request: URLRequest, config:URLSessionConfiguration,isPreventPinning:Bool)
+    func call<DataResult:Decodable, CustomError:DecodError>(_ request: URLRequest, config:URLSessionConfiguration,isPreventPinning:Bool)
         -> Observable<Result<DataResult, CustomError>> {
             
             return Observable.create { [weak self] observer in
@@ -126,7 +126,7 @@ public class Requester:NSObject{
     }
     
     
-    public func call<CustomError:DecodError>(_ request: URLRequest, config:URLSessionConfiguration,isPreventPinning:Bool)
+    func call<CustomError:DecodError>(_ request: URLRequest, config:URLSessionConfiguration,isPreventPinning:Bool)
         -> Observable<Result<RawResponse, CustomError>> {
             
             return Observable.create { [weak self] observer in
@@ -169,7 +169,7 @@ public class Requester:NSObject{
     }
     
     
-    private func hideLoading(){
+    func hideLoading(){
         DispatchQueue.main.async {
             if let topView = UIApplication.topViewController(){
                 

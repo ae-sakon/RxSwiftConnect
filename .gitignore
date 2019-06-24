@@ -1,5 +1,6 @@
 ## OS X Finder
 .DS_Store
+**/.DS_Store
 
 # Xcode
 #
@@ -19,6 +20,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+*.xcuserstate
 
 ## Other
 *.moved-aside

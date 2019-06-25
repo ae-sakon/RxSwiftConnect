@@ -172,9 +172,7 @@ public class Requester:NSObject{
     func hideLoading(){
         DispatchQueue.main.async {
             if let topView = UIApplication.topViewController(){
-                
-                topView.view.viewWithTag(101)?.removeFromSuperview()
-                
+                Loading.shared.hide(viewController: topView)
             }
         }
     }

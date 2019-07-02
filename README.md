@@ -3,6 +3,9 @@ RxSwiftConnect is similar Retrofit for iOS synonym name Retrofit iOS, We work wi
 use our experience to compile result name RxSwiftConnect
 
 Support RxSwift 5
+
+```pod
 pod 'RxSwiftConnect', '~> 2.5'
+```
 
 

@@ -4,7 +4,8 @@ use our experience to compile result name RxSwiftConnect
 
 <img src="Tutorial/SampleProject.gif" width="210" height="360">
 Image 1. SampleProject Result
-
+<br />
+<br />
 <p float="left">
 <img src="Tutorial/internetoffline.png" width="210" height="373">
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/timeout.png" width="210" height="373">
@@ -13,6 +14,8 @@ Image 1. SampleProject Result
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/unexpect.png" width="210" height="373">
 </p>
 Image 2. Handle error
+<br />
+<br />
 
 
 Support RxSwift 5

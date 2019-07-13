@@ -90,14 +90,11 @@ Or Basic Solution create Model by JSON Data, as illustrated below.
 <img src="Tutorial/jsonplaceholder.png" width="600" height="407">
 2. Copy result's response and post on https://app.quicktype.io .
 <img src="Tutorial/quicktypeio.png" width="600" height="368">
-
 RxSwiftConnect serves as a defense against Man-in-the-Middle Attack (MITM) between API Server and iOS 
 Mobile Application. An installed SSL on API Server doesn't guarantee non- vulnerability of your data and privacy 
 online. Attacker or hacker may be able to track your data on network communication by using Burp, a software
  provided by PortSwigger. MITM is named as one of the top ten most common types of cyber attacks as highted 
 by OWASP. Below are images of the installation and setting- up of RxSwiftConnect.
-
-<br />
 <br />
 1. Looking for correct ceftificated which related with domain API and export SSL from Window Server.
 <img src="Tutorial/16.jpg" width="600" height="295">

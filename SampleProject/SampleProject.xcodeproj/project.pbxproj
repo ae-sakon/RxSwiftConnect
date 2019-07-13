@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BB6E5537A506886AC1097C18 /* Pods_SampleProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18697551817512D6EAD6B0DC /* Pods_SampleProject.framework */; };
+		ED77868522DA0318009FE99D /* APISearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77868422DA0317009FE99D /* APISearch.swift */; };
+		ED77868722DA032F009FE99D /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77868622DA032F009FE99D /* Search.swift */; };
 		EDB4E1DC22C0F62100EB5C39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB4E1DB22C0F62100EB5C39 /* AppDelegate.swift */; };
 		EDB4E1DE22C0F62100EB5C39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB4E1DD22C0F62100EB5C39 /* ViewController.swift */; };
 		EDB4E1E122C0F62100EB5C39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB4E1DF22C0F62100EB5C39 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		0E763796FB570EE08EC1C116 /* Pods-SampleProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleProject.release.xcconfig"; path = "Target Support Files/Pods-SampleProject/Pods-SampleProject.release.xcconfig"; sourceTree = "<group>"; };
 		18697551817512D6EAD6B0DC /* Pods_SampleProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF8715585B09BD8AC24857E /* Pods-SampleProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleProject.debug.xcconfig"; path = "Target Support Files/Pods-SampleProject/Pods-SampleProject.debug.xcconfig"; sourceTree = "<group>"; };
+		ED77868422DA0317009FE99D /* APISearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APISearch.swift; sourceTree = "<group>"; };
+		ED77868622DA032F009FE99D /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		EDB4E1D822C0F62100EB5C39 /* SampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB4E1DB22C0F62100EB5C39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDB4E1DD22C0F62100EB5C39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				EDB4E1F022C0F91300EB5C39 /* Model */,
 				EDB4E1F322C0F91300EB5C39 /* APIClient.swift */,
 				EDB4E1F422C0F91300EB5C39 /* APIOtherClient.swift */,
+				ED77868422DA0317009FE99D /* APISearch.swift */,
 				EDB4E1F522C0F91300EB5C39 /* CustomError.swift */,
 				EDB4E1DB22C0F62100EB5C39 /* AppDelegate.swift */,
 				EDB4E1DD22C0F62100EB5C39 /* ViewController.swift */,
@@ -121,6 +126,7 @@
 		EDB4E1F022C0F91300EB5C39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED77868622DA032F009FE99D /* Search.swift */,
 				EDB4E1F122C0F91300EB5C39 /* Place.swift */,
 				EDB4E1F222C0F91300EB5C39 /* OtherUser.swift */,
 			);
@@ -271,11 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB4E1DE22C0F62100EB5C39 /* ViewController.swift in Sources */,
+				ED77868522DA0318009FE99D /* APISearch.swift in Sources */,
 				EDB4E1FA22C0F91300EB5C39 /* CustomError.swift in Sources */,
 				EDB4E1F722C0F91300EB5C39 /* OtherUser.swift in Sources */,
 				EDB4E1DC22C0F62100EB5C39 /* AppDelegate.swift in Sources */,
 				EDB4E1E422C0F62100EB5C39 /* SampleProject.xcdatamodeld in Sources */,
 				EDB4E1F622C0F91300EB5C39 /* Place.swift in Sources */,
+				ED77868722DA032F009FE99D /* Search.swift in Sources */,
 				EDB4E1F822C0F91300EB5C39 /* APIClient.swift in Sources */,
 				EDB4E1F922C0F91300EB5C39 /* APIOtherClient.swift in Sources */,
 			);

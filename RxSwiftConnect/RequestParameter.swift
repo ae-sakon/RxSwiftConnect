@@ -29,7 +29,7 @@ public struct RequestParameter {
   var baseUrl:String
   var httpMethod:HttpMethod
   var path:String
-  var query:[String:Any]?
+  var query:[String:Any?]?
   var payload:[String:Any?]?
   var headers:[String:String]?
   
@@ -37,7 +37,7 @@ public struct RequestParameter {
     httpMethod:HttpMethod,
     path:String,
     baseUrl:String,
-    query:[String:Any]? = nil,
+    query:[String:Any?]? = nil,
     payload:[String:Any?]? = nil,
     headers:[String:String]? = nil) {
     
@@ -60,7 +60,7 @@ extension RequestParameter {
     if let qItems = query {
       let queryItems:[URLQueryItem] = qItems.reduce([], { (result, current) -> [URLQueryItem] in
         var _result = result
-        _result.append(URLQueryItem(name: current.key, value: "\(current.value)"))
+        _result.append(URLQueryItem(name: current.key, value: "\(current.value!)"))
         return _result
       })
       components?.queryItems = queryItems

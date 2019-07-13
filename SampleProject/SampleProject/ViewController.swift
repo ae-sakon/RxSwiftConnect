@@ -49,6 +49,22 @@ class ViewController: UIViewController {
                 self.alertPopup(initMessage: "Application Error")
             }).disposed(by: stepBag)
         
+        //Test Call get with query url "http://search.megazy.com"
+        apiSearch
+            .searchQuery(postData: QuerySearch(plim: 10, pno: 1,lat: 13.752030, lng: 100.576115, dist: 2, shape: "cr"))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext:{ r in
+                
+                guard let response = r.value else{
+                    return self.alertPopup(initMessage: r.error!.errorFriendlyEn!)
+                }
+                response.Data.itemData.forEach{
+                    print("Category: \($0.category), Image: \($0.image)")
+                }
+            },onError:{ e in
+                self.alertPopup(initMessage: "Application Error")
+            }).disposed(by: stepBag)
+        
         
     }
     

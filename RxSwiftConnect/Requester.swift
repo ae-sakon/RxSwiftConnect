@@ -48,7 +48,7 @@ public class Requester:NSObject{
             httpMethod: .get,
             path: path,
             baseUrl: self.baseUrl,
-            payload: sendParameter?.dictionaryValue ?? nil,
+            query: sendParameter?.dictionaryValue ?? nil,
             headers: nil).asURLRequest()
         
         return  self.call(requestParameter,config: sessionConfig, isPreventPinning: preventPinning)

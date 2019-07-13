@@ -13,7 +13,6 @@ RxSwiftConnect included Handle, as illustrated below.
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/unexpect.png" width="210" height="373">
 </p>
 <br />
-<br />
 Defending Against Man-in-the-Middle Attack (MITM) between API Server and iOS Mobile Application even though 
 there was installed SSL on API Server. Attacker or Hacker able to listens package on network comunication using by
 Burp this software provided by PortSwigger. MITM is one of top ten of hight vulnerable recommended by OWASP and one of law of    mobile penetration test (pentest). Images illustrated below demonstrate instruction defending Man-in-the-Middle Attack (MITM)

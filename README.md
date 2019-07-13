@@ -6,6 +6,7 @@ use our experience to compile result name RxSwiftConnect
 Image 1. SampleProject Result
 <br />
 <br />
+this's show handle error below
 <p float="left">
 <img src="Tutorial/internetoffline.png" width="210" height="373">
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/timeout.png" width="210" height="373">
@@ -14,6 +15,10 @@ Image 1. SampleProject Result
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/unexpect.png" width="210" height="373">
 </p>
 Image 2. Handle error
+<br />
+Defending Against Man-in-the-Middle Attack (MITM) between API Server and iOS Mobile Application even though 
+there was installed SSL on API Server. Attacker or Hacker able to listens package on network comunication using by
+Burp this software provided by PortSwigger. MITM is one of top ten of hight vulnerable recommended by OWASP and one of law of    mobile penetration test (pentest).   
 <br />
 <br />
 <img src="Tutorial/16.jpg" width="600" height="295">

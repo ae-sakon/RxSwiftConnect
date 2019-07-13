@@ -18,7 +18,7 @@ error from complex JSON Structure, as illustrated below.
 <br />
 1. Copy example JSON Schema from bellow.
 <br />
-```
+```JSON Schema
 {
   "definitions": {
     "BannerInfo": {

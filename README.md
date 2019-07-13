@@ -3,7 +3,7 @@ RxSwiftConnect is similar Retrofit for iOS synonym name Retrofit iOS, We work wi
 use our experience to compile result name RxSwiftConnect. SampleProject Result, as illustrated below. 
 <p><img src="Tutorial/SampleProject.gif" width="210" height="360"></p>
 <br />
-RxSwiftConnect included Handle, as illustrated below. 
+RxSwiftConnect included Handle error, as illustrated below. 
 <p float="left">
 <img src="Tutorial/internetoffline.png" width="210" height="373">
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/timeout.png" width="210" height="373">

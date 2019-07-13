@@ -4,7 +4,7 @@ Man-in-the-Middle Attack (MITM). According to https://us.norton.com/, a man-in-t
 like eavesdropping. It is an attack where the attacker secretly relays and possibly alters the communications
 between two parties who believe they are directly communicating with each other (Wikipedia).
 After years of trials and tests, working with ReactiveX.io and Quicktype.io, 
-RxSwiftConnect was finally born. Shown below are sample projects results;
+RxSwiftConnect was finally born. Shown below are sample project results;
 <p><img src="Tutorial/SampleProject.gif" width="210" height="360"></p>
 <br />
 RxSwiftConnect included Handle error, as illustrated below. 

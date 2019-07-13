@@ -1,9 +1,7 @@
 # RxSwiftConnect
 RxSwiftConnect is similar Retrofit for iOS synonym name Retrofit iOS, We work with ReactiveX.io and Quicktype.io 
-use our experience to compile result name RxSwiftConnect
-
+use our experience to compile result name RxSwiftConnect. SampleProject Result, as illustrated below. 
 <img src="Tutorial/SampleProject.gif" width="210" height="360">
-SampleProject Result, as illustrated below. 
 <br />
 <br />
 RxSwiftConnect included Handle, as illustrated below. 

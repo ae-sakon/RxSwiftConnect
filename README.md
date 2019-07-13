@@ -53,7 +53,7 @@ Image 14.
 Support RxSwift 5
 
 ```pod
-pod 'RxSwiftConnect', '~> 2.5'
+pod 'RxSwiftConnect', '~> 2.8'
 ```
 
 

@@ -12,7 +12,7 @@ RxSwiftConnect included Handle error, as illustrated below.
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/unexpect.png" width="210" height="373">
 </p>
 <br />
-Instruction gennerates Model vai Quicktype.io there're two option, the best option create Model by JSON Schema
+Instruction gennerates Model vai Quicktype.io there're two solution, the best solution Model by JSON Schema
 if your team are developing API Server by C# easy to Generate JSON Schema following link https://blog.quicktype.io/swift-types-from-csharp it help iOS Developer enhancement mirror Model from API Server and avoid error from object null and
 error from complex JSON Structure, as illustrated below. 
 <br />
@@ -80,7 +80,7 @@ error from complex JSON Structure, as illustrated below.
 2. Paste JSON Schema on https://app.quicktype.io and changed Source type to "JSON Schema".
 <img src="Tutorial/quicktypeioschema.png" width="600" height="368">
 <br />
-Or basic create Model by JSON Data, as illustrated below. 
+Or Basic Solution create Model by JSON Data, as illustrated below. 
 <br />
 1. Go directly to https://jsonplaceholder.typicode.com/posts .
 <img src="Tutorial/jsonplaceholder.png" width="600" height="407">
@@ -112,11 +112,10 @@ Burp this software provided by PortSwigger. MITM is one of top ten of hight vuln
 <img src="Tutorial/10.jpg" width="600" height="279">
 10. It will be seen file "mycerts.crt".
 <img src="Tutorial/12.jpg" width="600" height="308">
-11.
+11. There's a file "certificate.cer".
 <img src="Tutorial/13.jpg" width="600" height="312">
-12.
+12. Additional file "certificate.cer" to iOS project.
 <img src="Tutorial/15.jpg" width="600" height="378">
-13.
 <br />
 <br />
 

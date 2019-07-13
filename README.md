@@ -5,6 +5,11 @@ like eavesdropping. It is an attack where the attacker secretly relays and possi
 between two parties who believe they are directly communicating with each other (Wikipedia).
 After years of trials and tests, working with ReactiveX.io and Quicktype.io, 
 RxSwiftConnect was finally born. Shown below are sample project results;
+
+Support RxSwift 5
+```pod
+pod 'RxSwiftConnect', '~> 2.8'
+```
 <p><img src="Tutorial/SampleProject.gif" width="210" height="360"></p>
 <br />
 RxSwiftConnect included Handle error, as illustrated below. 
@@ -123,10 +128,6 @@ by OWASP https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10 . Below are i
 <br />
 <br />
 
-Support RxSwift 5
 
-```pod
-pod 'RxSwiftConnect', '~> 2.8'
-```
 
 

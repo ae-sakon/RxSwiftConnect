@@ -94,7 +94,7 @@ RxSwiftConnect serves as a defense against Man-in-the-Middle Attack (MITM) betwe
 Mobile Application. An installed SSL on API Server doesn't guarantee non- vulnerability of your data and privacy 
 online. Attacker or hacker may be able to track your data on network communication by using Burp, a software
  provided by PortSwigger. MITM is named as one of the top ten most common types of cyber attacks as highted 
-by OWASP. Below are images of the installation and setting- up of RxSwiftConnect.
+by OWASP https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10 . Below are images of the installation and setting- up of RxSwiftConnect.
 <br />
 1. Looking for correct ceftificated which related with domain API and export SSL from Window Server.
 <img src="Tutorial/16.jpg" width="600" height="295">

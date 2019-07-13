@@ -1,6 +1,10 @@
 # RxSwiftConnect
-RxSwiftConnect is similar Retrofit for iOS synonym name Retrofit iOS, We work with ReactiveX.io and Quicktype.io 
-use our experience to compile result name RxSwiftConnect. SampleProject Result, as illustrated below. 
+RxSwiftConnect, also known as Retrofit for iOS, is a framework that serves as a protection against 
+Man-in-the-Middle Attack (MITM). According to https://us.norton.com/, a man-in-the-middle attack is 
+like eavesdropping. It is an attack where the attacker secretly relays and possibly alters the communications
+between two parties who believe they are directly communicating with each other (Wikipedia).
+After years of trials and tests, working with ReactiveX.io and Quicktype.io, 
+RxSwiftConnect was finally born. Shown below are sample projects results;
 <p><img src="Tutorial/SampleProject.gif" width="210" height="360"></p>
 <br />
 RxSwiftConnect included Handle error, as illustrated below. 
@@ -87,9 +91,12 @@ Or Basic Solution create Model by JSON Data, as illustrated below.
 2. Copy result's response and post on https://app.quicktype.io .
 <img src="Tutorial/quicktypeio.png" width="600" height="368">
 
-Defending Against Man-in-the-Middle Attack (MITM) between API Server and iOS Mobile Application even though 
-there was installed SSL on API Server. Attacker or Hacker able to listens package on network comunication using by
-Burp this software provided by PortSwigger. MITM is one of top ten of hight vulnerable recommended by OWASP and one of law of    mobile penetration test (pentest). Images illustrated below demonstrate instruction defending Man-in-the-Middle Attack (MITM)
+RxSwiftConnect serves as a defense against Man-in-the-Middle Attack (MITM) between API Server and iOS 
+Mobile Application. An installed SSL on API Server doesn't guarantee non- vulnerability of your data and privacy 
+online. Attacker or hacker may be able to track your data on network communication by using Burp, a software
+ provided by PortSwigger. MITM is named as one of the top ten most common types of cyber attacks as highted 
+by OWASP. Below are images of the installation and setting- up of RxSwiftConnect.
+
 <br />
 <br />
 1. Looking for correct ceftificated which related with domain API and export SSL from Window Server.

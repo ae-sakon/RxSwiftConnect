@@ -12,7 +12,71 @@ RxSwiftConnect included Handle error, as illustrated below.
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/unexpect.png" width="210" height="373">
 </p>
 <br />
-Instruction gennerates Model vai Quicktype.io, as illustrated below. 
+Instruction gennerates Model vai Quicktype.io there're two option, the best option create Model by JSON Schema
+if your team are developing API Server by C# easy to Generate JSON Schema following link https://blog.quicktype.io/swift-types-from-csharp it help iOS Developer enhancement mirror Model from API Server and avoid error from object null and
+error from complex JSON Structure, as illustrated below. 
+<br />
+1. Copy example JSON Schema from bellow.
+```
+{
+  "definitions": {
+    "BannerInfo": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "Image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "IdentityType": {
+          "type": "integer"
+        },
+        "BannerType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "PopUpText": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "Image",
+        "IdentityType",
+        "BannerType",
+        "PopUpText"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "Result": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "#/definitions/BannerInfo"
+      }
+    }
+  },
+  "required": [
+    "Result"
+  ]
+}
+```
+2. Paste JSON Schema on https://app.quicktype.io and changed Source type to "JSON Schema".
+<img src="Tutorial/quicktypeioschema.png" width="600" height="368">
+<br />
+Or basic create Model by JSON Data, as illustrated below. 
 <br />
 1. Go directly to https://jsonplaceholder.typicode.com/posts .
 <img src="Tutorial/jsonplaceholder.png" width="600" height="407">

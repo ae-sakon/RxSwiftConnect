@@ -13,8 +13,11 @@ RxSwiftConnect included Handle error, as illustrated below.
 </p>
 <br />
 Instruction gennerates Model vai Quicktype.io, as illustrated below. 
+<br />
 1. Go directly to https://jsonplaceholder.typicode.com/posts .
+<img src="Tutorial/jsonplaceholder.png" width="600" height="407">
 2. Copy result's response and post on https://app.quicktype.io .
+<img src="Tutorial/quicktypeio.png" width="600" height="368">
 
 Defending Against Man-in-the-Middle Attack (MITM) between API Server and iOS Mobile Application even though 
 there was installed SSL on API Server. Attacker or Hacker able to listens package on network comunication using by

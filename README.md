@@ -3,10 +3,10 @@ RxSwiftConnect is similar Retrofit for iOS synonym name Retrofit iOS, We work wi
 use our experience to compile result name RxSwiftConnect
 
 <img src="Tutorial/SampleProject.gif" width="210" height="360">
-Image 1. SampleProject Result
+SampleProject Result, as illustrated below. 
 <br />
 <br />
-this's show handle error below
+RxSwiftConnect included Handle, as illustrated below. 
 <p float="left">
 <img src="Tutorial/internetoffline.png" width="210" height="373">
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/timeout.png" width="210" height="373">
@@ -14,7 +14,6 @@ this's show handle error below
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/servererror.png" width="210" height="373">
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/unexpect.png" width="210" height="373">
 </p>
-Image 2. Handle error
 <br />
 <br />
 Defending Against Man-in-the-Middle Attack (MITM) between API Server and iOS Mobile Application even though 

@@ -17,6 +17,7 @@ if your team are developing API Server by C# easy to Generate JSON Schema follow
 error from complex JSON Structure, as illustrated below. 
 <br />
 1. Copy example JSON Schema from bellow.
+<br />
 ```
 {
   "definitions": {
@@ -73,6 +74,7 @@ error from complex JSON Structure, as illustrated below.
   ]
 }
 ```
+<br />
 2. Paste JSON Schema on https://app.quicktype.io and changed Source type to "JSON Schema".
 <img src="Tutorial/quicktypeioschema.png" width="600" height="368">
 <br />

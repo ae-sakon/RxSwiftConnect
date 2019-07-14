@@ -13,7 +13,7 @@ pod 'RxSwiftConnect', '~> 2.8'
 Shown below are sample project results;
 <p><img src="Tutorial/SampleProject.gif" width="210" height="360"></p>
 <br />
-How to coding?
+How to coding and use RxSwiftConnect Framework?
 <br >
 1. Set End Point
 

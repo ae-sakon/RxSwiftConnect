@@ -4,5 +4,5 @@ target 'SampleProject' do
     pod 'RxSwift', '~> 5'
     pod 'RxCocoa', '~> 5'
     pod 'SwiftyGif'
-    pod 'RxSwiftConnect', '~> 2.6'
+    pod 'RxSwiftConnect', '~> 2.8'
 end

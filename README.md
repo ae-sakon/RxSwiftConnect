@@ -171,12 +171,14 @@ by OWASP https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10 . Below are i
 8. Open folder on Mac.
 <img src="Tutorial/08.jpg" width="600" height="361">
 9. Run terminal and write command follow image.
-<img src="Tutorial/10.jpg" width="600" height="279">
+<img src="Tutorial/terminalexportcrt.jpg" width="600" height="279">
 10. It will be seen file "mycerts.crt".
 <img src="Tutorial/12.jpg" width="600" height="308">
-11. There's a file "certificate.cer".
+11. Run terminal to export certificate it's be used in XCODE
+<img src="Tutorial/terminalexportcer.jpg" width="600" height="308">
+12. There's a file "certificate.cer".
 <img src="Tutorial/13.jpg" width="600" height="312">
-12. Additional file "certificate.cer" to iOS project.
+13. Additional file "certificate.cer" to iOS project.
 <img src="Tutorial/15.jpg" width="600" height="378">
 <br />
 <br />

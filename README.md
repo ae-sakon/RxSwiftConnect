@@ -189,9 +189,13 @@ by OWASP https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10 . Below are i
 17. Finish change status "isPreventPinning = true" of RxSwiftConnect to protect MITM  and RUN!!
 
 ```ChangeStatus
-let beseUrl = "https://jsonplaceholder.typicode.com"
-      requester = Requester(initBaseUrl: beseUrl,timeout: 5, isPreventPinning: true, initSessionConfig: URLSessionConfiguration.default)
+private init() {
+        let beseUrl = "https://webstarter.megazy.com"
+        requester = Requester(initBaseUrl: beseUrl,timeout: 5, isPreventPinning: true, initSessionConfig: URLSessionConfiguration.default)
+    }
 ```
+
+
 
 
 

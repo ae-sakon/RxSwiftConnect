@@ -29,7 +29,25 @@ func getOtherUser() -> O<R<OtherUser,E>> {
 }
 ```
 
-3. Finish to RUN
+3. Create Model for receive result's data from API Service, uses https://quicktype.io to Auto-Generate Code, as illustrated below.
+
+```Model
+import Foundation
+
+struct OtherUserElement: Codable {
+    let userID, id: Int
+    let title, body: String
+    
+    enum CodingKeys: String, CodingKey {
+        case userID = "userId"
+        case id, title, body
+    }
+}
+
+typealias OtherUser = [OtherUserElement]
+```
+
+4. Finish to RUN
 
 ```ViewController
 apiOther.getOtherUser()

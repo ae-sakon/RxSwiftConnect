@@ -47,7 +47,7 @@ struct OtherUserElement: Codable {
 typealias OtherUser = [OtherUserElement]
 ```
 
-4. Finish to RUN
+4. Finish and RUN!!
 
 ```ViewController
 apiOther.getOtherUser()

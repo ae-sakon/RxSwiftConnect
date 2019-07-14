@@ -13,6 +13,34 @@ pod 'RxSwiftConnect', '~> 2.8'
 Shown below are sample project results;
 <p><img src="Tutorial/SampleProject.gif" width="210" height="360"></p>
 <br />
+How to coding?
+1. Set End Point
+```End Point
+let beseUrl = "https://jsonplaceholder.typicode.com"
+```
+2. Set URL API Service
+```APIClient
+func getOtherUser() -> O<R<OtherUser,E>> {
+  return requester.get(path: "posts")
+}
+```
+3. Finish to RUN
+```ViewController
+apiOther.getOtherUser()
+.observeOn(MainScheduler.instance)
+.subscribe(onNext:{ r in
+
+    guard let result = r.value else{
+        return self.alertPopup(initMessage: r.error!.errorFriendlyEn!)
+    }
+    result.forEach {
+        print("User ID: \($0.id), User Title: \($0.title)")
+    }
+},onError:{ e in
+    self.alertPopup(initMessage: "Application Error")
+}).disposed(by: stepBag)
+```            
+
 RxSwiftConnect included Handle error, as illustrated below. 
 <p float="left">
 <img src="Tutorial/internetoffline.png" width="210" height="373">

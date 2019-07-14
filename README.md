@@ -154,31 +154,37 @@ online. Attacker or hacker may be able to track your data on network communicati
  provided by PortSwigger. MITM is named as one of the top ten most common types of cyber attacks as highted 
 by OWASP https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10 . Below are images of the installation and setting- up of RxSwiftConnect.
 <br />
-1. Looking for correct ceftificated which related with domain API and export SSL from Window Server.
+1. Run mmc on Window Server it will be showed popup below.
+<img src="Tutorial/mmc1.jpg" width="600" height="415">
+2. Choose "Computer Account".
+<img src="Tutorial/mmc2.jpg" width="600" height="415">
+3. Choose "Certificates" and click "OK" button.
+<img src="Tutorial/mmc3.jpg" width="600" height="410">
+4. Looking for correct ceftificated which related with domain API and export SSL from Window Server.
 <img src="Tutorial/16.jpg" width="600" height="295">
-2. Choose export private key.
+5. Choose export private key.
 <img src="Tutorial/02.jpg" width="600" height="308">
-3. Choose PKCS and also included all certificates.
+6. Choose PKCS and also included all certificates.
 <img src="Tutorial/03.jpg" width="600" height="308">
-4. Create password it will be used gennerate .cer on iOS.
+7. Create password it will be used gennerate .cer on iOS.
 <img src="Tutorial/04.jpg" width="600" height="308">
-5. Names file "input.pfx".
+8. Names file "input.pfx".
 <img src="Tutorial/05.jpg" width="600" height="308">
-6. Click finish's button.
+9. Click finish's button.
 <img src="Tutorial/06.jpg" width="600" height="308">
-7. Copy file "input.pfx" and transfer to Mac.
+10. Copy file "input.pfx" and transfer to Mac.
 <img src="Tutorial/07.jpg" width="600" height="305">
-8. Open folder on Mac.
+11. Open folder on Mac.
 <img src="Tutorial/08.jpg" width="600" height="361">
-9. Run terminal and write command follow image.
+12. Run terminal and write command follow image.
 <img src="Tutorial/terminalexportcrt.jpg" width="600" height="279">
-10. It will be seen file "mycerts.crt".
+13. It will be seen file "mycerts.crt".
 <img src="Tutorial/12.jpg" width="600" height="308">
-11. Run terminal to export certificate it's be used in XCODE
+14. Run terminal to export certificate it's be used in XCODE
 <img src="Tutorial/terminalexportcer.jpg" width="600" height="308">
-12. There's a file "certificate.cer".
+15. There's a file "certificate.cer".
 <img src="Tutorial/13.jpg" width="600" height="312">
-13. Additional file "certificate.cer" to iOS project.
+16. Additional file "certificate.cer" to iOS project.
 <img src="Tutorial/15.jpg" width="600" height="378">
 <br />
 <br />

@@ -15,16 +15,21 @@ Shown below are sample project results;
 <br />
 How to coding?
 1. Set End Point
-```End Point
+
+```EndPoint
 let beseUrl = "https://jsonplaceholder.typicode.com"
 ```
+
 2. Set URL API Service
+
 ```APIClient
 func getOtherUser() -> O<R<OtherUser,E>> {
   return requester.get(path: "posts")
 }
 ```
+
 3. Finish to RUN
+
 ```ViewController
 apiOther.getOtherUser()
 .observeOn(MainScheduler.instance)

@@ -2,6 +2,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxSwiftConnect
 
 class APISearch {
     static var shared = APISearch()

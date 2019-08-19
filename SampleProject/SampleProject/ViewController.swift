@@ -13,13 +13,14 @@ class ViewController: UIViewController {
     
     let stepBag = DisposeBag()
     let api = APIClient.shared
-    let otherApi = APIOtherClient.shared
+    let apiOther = APIOtherClient.shared
+    let apiSearch = APISearch.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Test Call Url "https://jsonplaceholder.typicode.com"
-        otherApi.getOtherUser()
+        apiOther.getOtherUser()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext:{ r in
                 

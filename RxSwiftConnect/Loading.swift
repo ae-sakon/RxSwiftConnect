@@ -34,6 +34,7 @@ class Loading {
         }
         
         guard let imageview = self.imageview else{return}
+        view.subviews.lazy.filter{$0.isKind(of: UIImageView.self) && $0.tag == 101}.lazy.forEach{$0.removeFromSuperview()}
         view.addSubview(imageview)
         
         

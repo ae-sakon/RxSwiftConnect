@@ -8,7 +8,7 @@ s.summary = "RxSwiftConnect is similar Retrofit on Android and we can call Retro
 s.requires_arc = true
 
 # 2
-s.version = "2.9.0"
+s.version = "3.0.0"
 
 # 3
 s.license = { :type => "Apache License 2.0", :file => "/Users/sakon/iOS/Libraries/RxSwiftConnect/license.txt" }

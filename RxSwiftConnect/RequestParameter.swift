@@ -32,6 +32,7 @@ public struct RequestParameter {
   var query:[String:Any?]?
   var payload:[String:Any?]?
   var headers:[String:String]?
+
   
   public init(
     httpMethod:HttpMethod,
@@ -39,7 +40,8 @@ public struct RequestParameter {
     baseUrl:String,
     query:[String:Any?]? = nil,
     payload:[String:Any?]? = nil,
-    headers:[String:String]? = nil) {
+    headers:[String:String]? = nil
+   ) {
     
     self.baseUrl = baseUrl
     self.httpMethod = httpMethod
@@ -83,6 +85,102 @@ extension RequestParameter {
         request.addValue($0.element.value,
                          forHTTPHeaderField: $0.element.key)
     }
+    
+   
+    
+    
     return request
   }
+    
+    
+   
+}
+
+public class BoundaryCreater {
+    private var data = Data()
+    private let boundary = UUID().uuidString
+   
+   
+    public func addEndBoundary()->BoundaryCreater  {
+        data.append("\r\n--\(boundary)--\r\n")
+        return self
+    }
+    
+    public func addToBoundary(_ dict:[String:String]?, dataBoundary:DataBoundary? = nil)->BoundaryCreater{
+       
+        
+        if let dataBoundary = dataBoundary{
+            switch dataBoundary {
+            case let .image(key, fileName, image):
+                if let imageData = image?.jpegData(compressionQuality: 1) {
+                    createBoundaryItem(valueBoundary: .data(imageData, key, fileName))
+                }
+                
+            case let .vdo(key, urlFile):
+                if let vdoData = try? Data(contentsOf: urlFile) {
+                    let fileName = urlFile.lastPathComponent
+                    createBoundaryItem(valueBoundary: .data(vdoData, key, fileName))
+                }
+                
+            }
+            
+        }
+        
+        if let dict = dict{
+            dict.forEach{
+                createBoundaryItem(valueBoundary: .string($0, $1))
+            }
+        }
+        
+        return self
+    }
+    
+    private func createBoundaryItem(valueBoundary:ValueBoundary){
+        
+        
+        data.append("\r\n--\(boundary)\r\n")
+        
+        
+        switch valueBoundary {
+        case let .data(dataFile, key, fileName):
+            data.append("Content-Disposition: form-data; name=\"\(key)\"; filename=\"\(fileName)\"\r\n")
+            data.append("Content-Type: image/่jpge\r\n\r\n")
+            data.append(dataFile)
+            
+        case let .string(key, value):
+            data.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            data.append(value)
+        
+        }
+        
+        
+    }
+    
+    public func setRequestMultipart(_ request:inout URLRequest)->Data{
+      
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        return data
+        
+      
+    }
+    
+   
+    public enum ValueBoundary {
+        case data(_ data:Data, _ key:String, _ fileName:String)
+        case string(_ key:String, _ value:String)
+    }
+    
+    public enum DataBoundary{
+        case image(_ key:String,_ fileName:String,_ image:UIImage?)
+        case vdo(_ key:String,_ urlFile:URL)
+    }
+}
+
+
+extension Data {
+    mutating func append(_ string: String) {
+        if let data = string.data(using: .utf8) {
+            append(data)
+        }
+    }
 }

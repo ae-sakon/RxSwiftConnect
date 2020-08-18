@@ -8,7 +8,7 @@ RxSwiftConnect was finally born.
 
 Support RxSwift 5
 ```pod
-pod 'RxSwiftConnect', '~> 3.0'
+pod 'RxSwiftConnect', '~> 4.0'
 ```
 Shown below are sample project results;
 <p><img src="Tutorial/SampleProject.gif" width="210" height="360"></p>

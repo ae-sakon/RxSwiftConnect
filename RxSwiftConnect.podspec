@@ -11,7 +11,7 @@ s.requires_arc = true
 s.version = "4.0.0"
 
 # 3
-s.license = { :type => "Apache License 2.0", :file => "/Users/sakon/iOS/Libraries/RxSwiftConnect/license.txt" }
+s.license = { :type => "Apache License 2.0", :file => "license.txt" }
 
 # 4 - Replace with your name and e-mail address
 s.author = { "Keegan Rush" => "sakon@megazy.com" }

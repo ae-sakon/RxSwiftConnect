@@ -26,6 +26,21 @@ public class Requester:NSObject{
         self.sessionConfig.timeoutIntervalForRequest = TimeInterval(timeout)
     }
     
+    public func postQuery<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,header:[String:String]? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
+        
+        setupLoading(isShow: loading)
+        
+        let requestParameter = RequestParameter(
+            httpMethod: .post,
+            path: path,
+            baseUrl: self.baseUrl,
+            query: sendParameter?.dictionaryValue ?? nil,
+            headers: header).asURLRequest()
+        
+        return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
+        
+    }
+    
     public func post<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,header:[String:String]? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
         
         setupLoading(isShow: loading)
@@ -40,6 +55,26 @@ public class Requester:NSObject{
         return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
         
     }
+    
+    public func postBoundary<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,loading:Bool = true, header:[String:String]? = nil, dataBoundary:BoundaryCreater.DataBoundary? = nil) -> Observable<Result<DataResult, CustomError>>{
+        
+        let boundaryCreater = BoundaryCreater()
+        
+        var requestParameter = RequestParameter(
+            httpMethod: .post,
+            path: path,
+            baseUrl: self.baseUrl,
+            payload: nil,
+            headers: header).asURLRequest()
+        
+        let data = boundaryCreater
+            .addToBoundary(sendParameter?.dictionaryStringValue, dataBoundary: dataBoundary)
+            .addEndBoundary()
+            .setRequestMultipart(&requestParameter)
+        
+        return  self.callUpload(requestParameter,config: sessionConfig,isPreventPinning: preventPinning, dataUploadTask : data)
+    }
+    
     public func get<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
         
         setupLoading(isShow: loading)
@@ -87,35 +122,8 @@ public class Requester:NSObject{
                 
                 let sessionPinning = SessionPinningDelegate(statusPreventPinning: isPreventPinning);
                 let urlSession = URLSession(configuration: config, delegate: sessionPinning, delegateQueue: nil)
-                let task = urlSession.dataTask(with: request) { data, response, error in
-                    
-                    if error != nil {
-                        _self.hideLoading()
-                        let customError = CustomError(error: error!)
-                        observer.onNext(Result.failure(customError))
-                    }else{
-                        _self.hideLoading()
-                        if let httpResponse = response as? HTTPURLResponse{
-                            let statusCode = httpResponse.statusCode
-                            
-                            do {
-                                let _data = data ?? Data()
-                                if statusCode == 200 {
-                                    let objs = try _self.decoder.decode(DataResult.self, from: _data)
-                                    observer.onNext(Result.successful(objs))
-                                } else {
-                                    let customError = CustomError(responseCode: httpResponse.statusCode)
-                                    observer.onNext(Result.failure(customError))
-                                }
-                            } catch {
-                                let customError = CustomError(responseCode: httpResponse.statusCode)
-                                observer.onNext(Result.failure(customError))
-                            }
-                        }else{
-                            let customError = CustomError(unknowError: "Error URLSession")
-                            observer.onNext(Result.failure(customError))
-                        }
-                    }
+                let task = urlSession.dataTask(with: request) {
+                    _self.processResult($0, $1, $2, observer: observer)
                 }
                 task.resume()
                 return Disposables.create {
@@ -202,7 +210,34 @@ extension Encodable {
         }
         return dictionary
     }
+    
+    var dictionaryStringValue:[String: String]? {
+        guard let data = try? JSONEncoder().encode(self),
+            let dictionary = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+                return nil
+        }
+       
+       
+        var dic:[String:Any] = [:]
+        dictionary.forEach{
+            dic.append(anotherDict: [$0.key:"\($0.value)"])
+        }
+     
+        return dic as? [String:String]
+    }
+    
+    
 }
+
+extension Dictionary where Key == String, Value == Any {
+
+    mutating func append(anotherDict:[String:Any]) {
+        for (key, value) in anotherDict {
+            self.updateValue(value, forKey: key)
+        }
+    }
+}
+
 extension UIApplication {
     class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         
@@ -224,4 +259,56 @@ extension UIApplication {
     
 }
 
+
+extension Requester{
+    
+    private func processResult<DataResult:Decodable, CustomError:DecodError>(_ data:Data?, _ response:URLResponse?, _ error:Error?, observer: AnyObserver<Result<DataResult, CustomError>>) {
+        if error != nil {
+            hideLoading()
+            let customError = CustomError(error: error!)
+            observer.onNext(Result.failure(customError))
+        }else{
+            hideLoading()
+            if let httpResponse = response as? HTTPURLResponse{
+                let statusCode = httpResponse.statusCode
+                
+                do {
+                    let _data = data ?? Data()
+                    if statusCode == 200 {
+                        let objs = try decoder.decode(DataResult.self, from: _data)
+                        observer.onNext(Result.successful(objs))
+                    } else {
+                        let customError = CustomError(responseCode: httpResponse.statusCode)
+                        observer.onNext(Result.failure(customError))
+                    }
+                } catch {
+                    let customError = CustomError(responseCode: httpResponse.statusCode)
+                    observer.onNext(Result.failure(customError))
+                }
+            }else{
+                let customError = CustomError(unknowError: "Error URLSession")
+                observer.onNext(Result.failure(customError))
+            }
+        }
+    }
+    func callUpload<DataResult:Decodable, CustomError:DecodError>(_ request: URLRequest, config:URLSessionConfiguration,isPreventPinning:Bool, dataUploadTask:Data?)
+        -> Observable<Result<DataResult, CustomError>> {
+            
+            return Observable.create { [weak self] observer in
+                
+                guard let _self = self else { return Disposables.create{self?.hideLoading()} }
+                
+                let sessionPinning = SessionPinningDelegate(statusPreventPinning: isPreventPinning);
+                let urlSession = URLSession(configuration: config, delegate: sessionPinning, delegateQueue: nil)
+                let task = urlSession.uploadTask(with: request, from:dataUploadTask) {
+                    _self.processResult($0, $1, $2, observer: observer)
+                }
+                task.resume()
+                return Disposables.create {
+                    task.cancel()
+                    _self.hideLoading()
+                }
+            }
+    }
+}
 

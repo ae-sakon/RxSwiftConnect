@@ -1,10 +1,10 @@
 # RxSwiftConnect
-RxSwiftConnect, also known as Retrofit for iOS, is a framework that serves as a protection against 
-Man-in-the-Middle Attack (MITM). According to https://us.norton.com/, a man-in-the-middle attack is 
+RxSwiftConnect, also known as Retrofit for iOS, is a framework that serves as a protection against
+Man-in-the-Middle Attack (MITM). According to https://us.norton.com/, a man-in-the-middle attack is
 like eavesdropping. It is an attack where the attacker secretly relays and possibly alters the communications
 between two parties who believe they are directly communicating with each other (Wikipedia).
-After years of trials and tests, working with ReactiveX.io and Quicktype.io, 
-RxSwiftConnect was finally born. 
+After years of trials and tests, working with ReactiveX.io and Quicktype.io,
+RxSwiftConnect was finally born.
 
 Support RxSwift 5
 ```pod
@@ -37,7 +37,7 @@ import Foundation
 struct OtherUserElement: Codable {
     let userID, id: Int
     let title, body: String
-    
+
     enum CodingKeys: String, CodingKey {
         case userID = "userId"
         case id, title, body
@@ -65,7 +65,7 @@ apiOther.getOtherUser()
 }).disposed(by: stepBag)
 ```            
 
-RxSwiftConnect included Handle error, as illustrated below. 
+RxSwiftConnect included Handle error, as illustrated below.
 <p float="left">
 <img src="Tutorial/internetoffline.png" width="210" height="373">
 &nbsp;&nbsp;&nbsp;<img src="Tutorial/timeout.png" width="210" height="373">
@@ -76,7 +76,7 @@ RxSwiftConnect included Handle error, as illustrated below.
 <br />
 Instruction gennerates Model vai Quicktype.io there're two solution, the best solution Model by JSON Schema
 if your team are developing API Server by C# easy to Generate JSON Schema following link https://blog.quicktype.io/swift-types-from-csharp it help iOS Developer enhancement mirror Model from API Server and avoid error from object null and
-error from complex JSON Structure, as illustrated below. 
+error from complex JSON Structure, as illustrated below.
 <br />
 1. Copy example JSON Schema from bellow.
 <br />
@@ -142,16 +142,16 @@ error from complex JSON Structure, as illustrated below.
 2. Paste JSON Schema on https://app.quicktype.io and changed Source type to "JSON Schema".
 <img src="Tutorial/quicktypeioschema.png" width="600" height="368">
 <br />
-Or Basic Solution create Model by JSON Data, as illustrated below. 
+Or Basic Solution create Model by JSON Data, as illustrated below.
 <br />
 1. Go directly to https://jsonplaceholder.typicode.com/posts .
 <img src="Tutorial/jsonplaceholder.png" width="600" height="407">
 2. Copy result's response and post on https://app.quicktype.io .
 <img src="Tutorial/quicktypeio.png" width="600" height="368">
-RxSwiftConnect serves as a defense against Man-in-the-Middle Attack (MITM) between API Server and iOS 
-Mobile Application. An installed SSL on API Server doesn't guarantee non- vulnerability of your data and privacy 
+RxSwiftConnect serves as a defense against Man-in-the-Middle Attack (MITM) between API Server and iOS
+Mobile Application. An installed SSL on API Server doesn't guarantee non- vulnerability of your data and privacy
 online. Attacker or hacker may be able to track your data on network communication by using Burp, a software
- provided by PortSwigger. MITM is named as one of the top ten most common types of cyber attacks as highted 
+ provided by PortSwigger. MITM is named as one of the top ten most common types of cyber attacks as highted
 by OWASP https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10 . Below are images of the installation and setting- up of RxSwiftConnect.
 <br />
 1. Run mmc on Window Server it will be showed popup below.
@@ -194,10 +194,5 @@ private init() {
         requester = Requester(initBaseUrl: beseUrl,timeout: 5, isPreventPinning: true, initSessionConfig: URLSessionConfiguration.default)
     }
 ```
-
-
-
-
-
-
-
+Sample code upload UIImage and Video's file
+<img src="Tutorial/18.jpg" width="600" height="101.6">

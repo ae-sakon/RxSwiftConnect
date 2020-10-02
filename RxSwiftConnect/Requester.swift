@@ -123,7 +123,7 @@ public class Requester:NSObject{
                 let sessionPinning = SessionPinningDelegate(statusPreventPinning: isPreventPinning);
                 let urlSession = URLSession(configuration: config, delegate: sessionPinning, delegateQueue: nil)
                 let task = urlSession.dataTask(with: request) {
-                    _self.processResult($0, $1, $2, observer: observer)
+                    self?.processResult($0, $1, $2, observer: observer)
                 }
                 task.resume()
                 return Disposables.create {
@@ -167,6 +167,8 @@ public class Requester:NSObject{
                             observer.onNext(Result.failure(customError))
                         }
                     }
+                    
+                    observer.onCompleted()
                 }
                 task.resume()
                 return Disposables.create {
@@ -290,6 +292,8 @@ extension Requester{
                 observer.onNext(Result.failure(customError))
             }
         }
+        
+        observer.onCompleted()
     }
     func callUpload<DataResult:Decodable, CustomError:DecodError>(_ request: URLRequest, config:URLSessionConfiguration,isPreventPinning:Bool, dataUploadTask:Data?)
         -> Observable<Result<DataResult, CustomError>> {
@@ -301,7 +305,7 @@ extension Requester{
                 let sessionPinning = SessionPinningDelegate(statusPreventPinning: isPreventPinning);
                 let urlSession = URLSession(configuration: config, delegate: sessionPinning, delegateQueue: nil)
                 let task = urlSession.uploadTask(with: request, from:dataUploadTask) {
-                    _self.processResult($0, $1, $2, observer: observer)
+                    self?.processResult($0, $1, $2, observer: observer)
                 }
                 task.resume()
                 return Disposables.create {

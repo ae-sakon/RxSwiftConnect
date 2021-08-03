@@ -32,6 +32,8 @@ public struct RequestParameter {
   var query:[String:Any?]?
   var payload:[String:Any?]?
   var headers:[String:String]?
+  var version:String
+  let hasVersion:Bool
 
   
   public init(
@@ -40,7 +42,9 @@ public struct RequestParameter {
     baseUrl:String,
     query:[String:Any?]? = nil,
     payload:[String:Any?]? = nil,
-    headers:[String:String]? = nil
+    headers:[String:String]? = nil,
+    version:String = "1.0",
+    hasVersion:Bool = false
    ) {
     
     self.baseUrl = baseUrl
@@ -49,6 +53,8 @@ public struct RequestParameter {
     self.query = query
     self.payload = payload
     self.headers = headers
+    self.version = version
+    self.hasVersion = hasVersion
   }
 }
 
@@ -56,7 +62,7 @@ extension RequestParameter {
   
   public func asURLRequest() -> URLRequest {
     
-    let url = "\(baseUrl)/\(path)"
+    let url = "\(baseUrl)\(hasVersion ? "/v\(version)":"")/\(path)"
     
     var components = URLComponents(string: url)
     if let qItems = query {

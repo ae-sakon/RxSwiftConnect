@@ -17,13 +17,15 @@ public class Requester:NSObject{
     private lazy var decoder = JSONDecoder()
     private let sessionConfig:URLSessionConfiguration
     private let preventPinning:Bool
+    private let hasVersion:Bool
     
-    public init(initBaseUrl:String,timeout:Int,isPreventPinning:Bool,initSessionConfig:URLSessionConfiguration){
+    public init(initBaseUrl:String, timeout:Int, isPreventPinning:Bool, initSessionConfig:URLSessionConfiguration, hasVersion:Bool = false){
         self.baseUrl = initBaseUrl
         //self.requester = initRequester
         self.preventPinning = isPreventPinning
         self.sessionConfig = initSessionConfig
         self.sessionConfig.timeoutIntervalForRequest = TimeInterval(timeout)
+        self.hasVersion = hasVersion
     }
     
     public func postQuery<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,header:[String:String]? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
@@ -35,7 +37,8 @@ public class Requester:NSObject{
             path: path,
             baseUrl: self.baseUrl,
             query: sendParameter?.dictionaryValue ?? nil,
-            headers: header).asURLRequest()
+            headers: header,
+            hasVersion: hasVersion).asURLRequest()
         
         return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
         
@@ -50,7 +53,25 @@ public class Requester:NSObject{
             path: path,
             baseUrl: self.baseUrl,
             payload: sendParameter?.dictionaryValue ?? nil,
-            headers: header).asURLRequest()
+            headers: header,
+            hasVersion: hasVersion).asURLRequest()
+        
+        return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
+        
+    }
+    
+    public func post<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,header:[String:String]? = nil, loading:Bool = true, version:String) -> Observable<Result<DataResult, CustomError>>{
+        
+        setupLoading(isShow: loading)
+        
+        let requestParameter = RequestParameter(
+            httpMethod: .post,
+            path: path,
+            baseUrl: self.baseUrl,
+            payload: sendParameter?.dictionaryValue ?? nil,
+            headers: header,
+            version: version,
+            hasVersion: hasVersion).asURLRequest()
         
         return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
         
@@ -65,7 +86,8 @@ public class Requester:NSObject{
             path: path,
             baseUrl: self.baseUrl,
             payload: nil,
-            headers: header).asURLRequest()
+            headers: header,
+            hasVersion: hasVersion).asURLRequest()
         
         let data = boundaryCreater
             .addToBoundary(sendParameter?.dictionaryStringValue, dataBoundary: dataBoundary)
@@ -84,7 +106,8 @@ public class Requester:NSObject{
             path: path,
             baseUrl: self.baseUrl,
             query: sendParameter?.dictionaryValue ?? nil,
-            headers: nil).asURLRequest()
+            headers: nil,
+            hasVersion: hasVersion).asURLRequest()
         
         return  self.call(requestParameter,config: sessionConfig, isPreventPinning: preventPinning)
         
@@ -97,7 +120,8 @@ public class Requester:NSObject{
             path: path,
             baseUrl: self.baseUrl,
             payload:  nil,
-            headers: nil).asURLRequest()
+            headers: nil,
+            hasVersion: hasVersion).asURLRequest()
         requestParameter.url = URL(string: path)
         
         return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
@@ -123,7 +147,7 @@ public class Requester:NSObject{
                 let sessionPinning = SessionPinningDelegate(statusPreventPinning: isPreventPinning);
                 let urlSession = URLSession(configuration: config, delegate: sessionPinning, delegateQueue: nil)
                 let task = urlSession.dataTask(with: request) {
-                    self?.processResult($0, $1, $2, observer: observer)
+                    _self.processResult($0, $1, $2, observer: observer, request: request)
                 }
                 task.resume()
                 return Disposables.create {
@@ -167,8 +191,6 @@ public class Requester:NSObject{
                             observer.onNext(Result.failure(customError))
                         }
                     }
-                    
-                    observer.onCompleted()
                 }
                 task.resume()
                 return Disposables.create {
@@ -264,7 +286,20 @@ extension UIApplication {
 
 extension Requester{
     
-    private func processResult<DataResult:Decodable, CustomError:DecodError>(_ data:Data?, _ response:URLResponse?, _ error:Error?, observer: AnyObserver<Result<DataResult, CustomError>>) {
+    private func processResult<DataResult:Decodable, CustomError:DecodError>(_ data:Data?,
+                                                                             _ response:URLResponse?,
+                                                                             _ error:Error?,
+                                                                             observer: AnyObserver<Result<DataResult, CustomError>>,
+                                                                             request:URLRequest) {
+        var token = "empty"
+        
+        do{
+            
+            token = try request.allHTTPHeaderFields?.tryValue(forKey: "Authorize") ?? ""
+        }catch{
+            
+        }
+        
         if error != nil {
             hideLoading()
             let customError = CustomError(error: error!)
@@ -280,11 +315,16 @@ extension Requester{
                         let objs = try decoder.decode(DataResult.self, from: _data)
                         observer.onNext(Result.successful(objs))
                     } else {
-                        let customError = CustomError(responseCode: httpResponse.statusCode)
+                        var customError = CustomError(responseCode: httpResponse.statusCode)
+                       
+                        
+                        
+                        customError.errorInfo = "service \(httpResponse.url?.absoluteString ?? "") error \(httpResponse.statusCode) | token : \(token) | ==> \(String(data: _data, encoding: .utf8) ?? "")"
                         observer.onNext(Result.failure(customError))
                     }
                 } catch {
-                    let customError = CustomError(responseCode: httpResponse.statusCode)
+                    var customError = CustomError(responseCode: httpResponse.statusCode)
+                    customError.errorInfo = "service \(httpResponse.url?.absoluteString ?? "") error typeMismatch | token : \(token) | ==> \(error)"
                     observer.onNext(Result.failure(customError))
                 }
             }else{
@@ -292,8 +332,6 @@ extension Requester{
                 observer.onNext(Result.failure(customError))
             }
         }
-        
-        observer.onCompleted()
     }
     func callUpload<DataResult:Decodable, CustomError:DecodError>(_ request: URLRequest, config:URLSessionConfiguration,isPreventPinning:Bool, dataUploadTask:Data?)
         -> Observable<Result<DataResult, CustomError>> {
@@ -305,7 +343,7 @@ extension Requester{
                 let sessionPinning = SessionPinningDelegate(statusPreventPinning: isPreventPinning);
                 let urlSession = URLSession(configuration: config, delegate: sessionPinning, delegateQueue: nil)
                 let task = urlSession.uploadTask(with: request, from:dataUploadTask) {
-                    self?.processResult($0, $1, $2, observer: observer)
+                    _self.processResult($0, $1, $2, observer: observer, request: request)
                 }
                 task.resume()
                 return Disposables.create {
@@ -316,3 +354,16 @@ extension Requester{
     }
 }
 
+
+
+public struct DictionaryTryValueError: Error {
+    public init() {}
+}
+
+public extension Dictionary {
+    func tryValue(forKey key: Key, error: Error = DictionaryTryValueError()) throws -> Value {
+        guard let value = self[key] else { throw error }
+        return value
+    }
+    
+}

@@ -2,6 +2,8 @@
 //  UIImageView+SwiftyGif.swift
 //
 
+#if !os(macOS)
+
 import ImageIO
 import UIKit
 
@@ -11,6 +13,23 @@ import UIKit
     @objc optional func gifDidStop(sender: UIImageView)
     @objc optional func gifURLDidFinish(sender: UIImageView)
     @objc optional func gifURLDidFail(sender: UIImageView, url: URL, error: Error?)
+}
+
+public extension UIImageView {
+    /// Set an image and a manager to an existing UIImageView. If the image is not an GIF image, set it in normal way and remove self form SwiftyGifManager
+    ///
+    /// WARNING : this overwrite any previous gif.
+    /// - Parameter gifImage: The UIImage containing the gif backing data
+    /// - Parameter manager: The manager to handle the gif display
+    /// - Parameter loopCount: The number of loops we want for this gif. -1 means infinite.
+    func setImage(_ image: UIImage, manager: SwiftyGifManager = .defaultManager, loopCount: Int = -1) {
+        if let _ = image.imageData {
+            setGifImage(image, manager: manager, loopCount: loopCount)
+        } else {
+            manager.deleteImageView(self)
+            self.image = image
+        }
+    }
 }
 
 public extension UIImageView {
@@ -83,11 +102,25 @@ public extension UIImageView {
                        manager: SwiftyGifManager = .defaultManager,
                        loopCount: Int = -1,
                        levelOfIntegrity: GifLevelOfIntegrity = .default,
-                       showLoader: Bool = true) -> URLSessionDataTask {
-        stopAnimatingGif()
-        let loader: UIActivityIndicatorView? = showLoader ? createLoader() : nil
+                       session: URLSession = URLSession.shared,
+                       showLoader: Bool = true,
+                       customLoader: UIView? = nil) -> URLSessionDataTask? {
         
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+        if let data =  manager.remoteCache[url] {
+            self.parseDownloadedGif(url: url,
+                    data: data,
+                    error: nil,
+                    manager: manager,
+                    loopCount: loopCount,
+                    levelOfIntegrity: levelOfIntegrity)
+            return nil
+        }
+        
+        stopAnimatingGif()
+        
+        let loader: UIView? = showLoader ? createLoader(from: customLoader) : nil
+        
+        let task = session.dataTask(with: url) { data, _, error in
             DispatchQueue.main.async {
                 loader?.removeFromSuperview()
                 self.parseDownloadedGif(url: url,
@@ -104,24 +137,30 @@ public extension UIImageView {
         return task
     }
     
-    private func createLoader() -> UIActivityIndicatorView {
-        let loader = UIActivityIndicatorView()
+    private func createLoader(from view: UIView? = nil) -> UIView {
+        let loader = view ?? UIActivityIndicatorView()
         addSubview(loader)
         loader.translatesAutoresizingMaskIntoConstraints = false
         
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[subview]-0-|",
-            options: .directionLeadingToTrailing,
-            metrics: nil,
-            views: ["subview": loader]))
+        addConstraint(NSLayoutConstraint(
+            item: loader,
+            attribute: .centerX,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .centerX,
+            multiplier: 1,
+            constant: 0))
         
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[subview]-0-|",
-            options: .directionLeadingToTrailing,
-            metrics: nil,
-            views: ["subview": loader]))
+        addConstraint(NSLayoutConstraint(
+            item: loader,
+            attribute: .centerY,
+            relatedBy: .equal,
+            toItem: self,
+            attribute: .centerY,
+            multiplier: 1,
+            constant: 0))
         
-        loader.startAnimating()
+        (loader as? UIActivityIndicatorView)?.startAnimating()
         
         return loader
     }
@@ -139,6 +178,7 @@ public extension UIImageView {
         
         do {
             let image = try UIImage(gifData: data, levelOfIntegrity: levelOfIntegrity)
+            manager.remoteCache[url] = data
             setGifImage(image, manager: manager, loopCount: loopCount)
             startAnimatingGif()
             delegate?.gifURLDidFinish?(sender: self)
@@ -419,8 +459,6 @@ public extension UIImageView {
             
             if newValue {
                 delegate?.gifDidStart?(sender: self)
-            } else {
-                delegate?.gifDidStop?(sender: self)
             }
         }
     }
@@ -444,3 +482,5 @@ public extension UIImageView {
         return (result as? T)
     }
 }
+
+#endif

@@ -3,18 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D4CB537849F5FDA49A22DBAC /* Pods_RxSwiftConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E398DBAC6F6F6CD90D00C3F0 /* Pods_RxSwiftConnect.framework */; };
 		ED2C687122BF5EA400D55E02 /* RxSwiftConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = ED2C686F22BF5EA400D55E02 /* RxSwiftConnect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED2C687F22BF5F6400D55E02 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = ED2C687822BF5F6400D55E02 /* loading.gif */; };
-		ED2C688022BF5F6400D55E02 /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2C687A22BF5F6400D55E02 /* Kanit-SemiBold.ttf */; };
-		ED2C688122BF5F6400D55E02 /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2C687B22BF5F6400D55E02 /* Kanit-Regular.ttf */; };
-		ED2C688222BF5F6400D55E02 /* Kanit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2C687C22BF5F6400D55E02 /* Kanit-Thin.ttf */; };
-		ED2C688322BF5F6400D55E02 /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2C687D22BF5F6400D55E02 /* Kanit-Bold.ttf */; };
-		ED2C688422BF5F6400D55E02 /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED2C687E22BF5F6400D55E02 /* Kanit-Medium.ttf */; };
 		ED2C688D22BF5F7E00D55E02 /* RequestParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C688522BF5F7E00D55E02 /* RequestParameter.swift */; };
 		ED2C688E22BF5F7E00D55E02 /* ErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C688622BF5F7E00D55E02 /* ErrorInfo.swift */; };
 		ED2C688F22BF5F7E00D55E02 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C688722BF5F7E00D55E02 /* Loading.swift */; };
@@ -22,21 +16,16 @@
 		ED2C689222BF5F7E00D55E02 /* SessionPinningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C688A22BF5F7E00D55E02 /* SessionPinningDelegate.swift */; };
 		ED2C689422BF5F7E00D55E02 /* RawResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C688C22BF5F7E00D55E02 /* RawResponse.swift */; };
 		ED2C68A422BF951000D55E02 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2C68A122BF93F700D55E02 /* Requester.swift */; };
+		FE5972B827DDC1D70040EB3D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FE5972B727DDC1D70040EB3D /* RxSwift */; };
+		FE5972BB27DDC3E30040EB3D /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = FE5972BA27DDC3E30040EB3D /* SwiftyGif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		24C529CBE51A7F47C2995ECA /* Pods-RxSwiftConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftConnect.release.xcconfig"; path = "Target Support Files/Pods-RxSwiftConnect/Pods-RxSwiftConnect.release.xcconfig"; sourceTree = "<group>"; };
-		936FD374080F2134F71D458C /* Pods-RxSwiftConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftConnect.debug.xcconfig"; path = "Target Support Files/Pods-RxSwiftConnect/Pods-RxSwiftConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		E398DBAC6F6F6CD90D00C3F0 /* Pods_RxSwiftConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2C686C22BF5EA400D55E02 /* RxSwiftConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2C686F22BF5EA400D55E02 /* RxSwiftConnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxSwiftConnect.h; sourceTree = "<group>"; };
 		ED2C687022BF5EA400D55E02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED2C687822BF5F6400D55E02 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
-		ED2C687A22BF5F6400D55E02 /* Kanit-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-SemiBold.ttf"; sourceTree = "<group>"; };
-		ED2C687B22BF5F6400D55E02 /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
-		ED2C687C22BF5F6400D55E02 /* Kanit-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Thin.ttf"; sourceTree = "<group>"; };
-		ED2C687D22BF5F6400D55E02 /* Kanit-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Bold.ttf"; sourceTree = "<group>"; };
-		ED2C687E22BF5F6400D55E02 /* Kanit-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Medium.ttf"; sourceTree = "<group>"; };
 		ED2C688522BF5F7E00D55E02 /* RequestParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestParameter.swift; sourceTree = "<group>"; };
 		ED2C688622BF5F7E00D55E02 /* ErrorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorInfo.swift; sourceTree = "<group>"; };
 		ED2C688722BF5F7E00D55E02 /* Loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
@@ -51,28 +40,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4CB537849F5FDA49A22DBAC /* Pods_RxSwiftConnect.framework in Frameworks */,
+				FE5972B827DDC1D70040EB3D /* RxSwift in Frameworks */,
+				FE5972BB27DDC3E30040EB3D /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01CB39C9DCCE49EF6DA5F5E0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				936FD374080F2134F71D458C /* Pods-RxSwiftConnect.debug.xcconfig */,
-				24C529CBE51A7F47C2995ECA /* Pods-RxSwiftConnect.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		ED2C686222BF5EA400D55E02 = {
 			isa = PBXGroup;
 			children = (
 				ED2C686E22BF5EA400D55E02 /* RxSwiftConnect */,
 				ED2C686D22BF5EA400D55E02 /* Products */,
-				01CB39C9DCCE49EF6DA5F5E0 /* Pods */,
 				FB718FC320936F4CFA3C98AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -106,21 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				ED2C687822BF5F6400D55E02 /* loading.gif */,
-				ED2C687922BF5F6400D55E02 /* Fonts */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		ED2C687922BF5F6400D55E02 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				ED2C687A22BF5F6400D55E02 /* Kanit-SemiBold.ttf */,
-				ED2C687B22BF5F6400D55E02 /* Kanit-Regular.ttf */,
-				ED2C687C22BF5F6400D55E02 /* Kanit-Thin.ttf */,
-				ED2C687D22BF5F6400D55E02 /* Kanit-Bold.ttf */,
-				ED2C687E22BF5F6400D55E02 /* Kanit-Medium.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FB718FC320936F4CFA3C98AE /* Frameworks */ = {
@@ -149,7 +116,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED2C687422BF5EA400D55E02 /* Build configuration list for PBXNativeTarget "RxSwiftConnect" */;
 			buildPhases = (
-				153C03B82D8B26CC7C0F78CD /* [CP] Check Pods Manifest.lock */,
 				ED2C686722BF5EA400D55E02 /* Headers */,
 				ED2C686822BF5EA400D55E02 /* Sources */,
 				ED2C686922BF5EA400D55E02 /* Frameworks */,
@@ -160,6 +126,10 @@
 			dependencies = (
 			);
 			name = RxSwiftConnect;
+			packageProductDependencies = (
+				FE5972B727DDC1D70040EB3D /* RxSwift */,
+				FE5972BA27DDC3E30040EB3D /* SwiftyGif */,
+			);
 			productName = RxSwiftConnect;
 			productReference = ED2C686C22BF5EA400D55E02 /* RxSwiftConnect.framework */;
 			productType = "com.apple.product-type.framework";
@@ -187,6 +157,10 @@
 				en,
 			);
 			mainGroup = ED2C686222BF5EA400D55E02;
+			packageReferences = (
+				FE5972B427DDC1D70040EB3D /* XCRemoteSwiftPackageReference "RxSwift" */,
+				FE5972B927DDC3E30040EB3D /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+			);
 			productRefGroup = ED2C686D22BF5EA400D55E02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -202,40 +176,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED2C687F22BF5F6400D55E02 /* loading.gif in Resources */,
-				ED2C688422BF5F6400D55E02 /* Kanit-Medium.ttf in Resources */,
-				ED2C688222BF5F6400D55E02 /* Kanit-Thin.ttf in Resources */,
-				ED2C688322BF5F6400D55E02 /* Kanit-Bold.ttf in Resources */,
-				ED2C688022BF5F6400D55E02 /* Kanit-SemiBold.ttf in Resources */,
-				ED2C688122BF5F6400D55E02 /* Kanit-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		153C03B82D8B26CC7C0F78CD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RxSwiftConnect-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ED2C686822BF5EA400D55E02 /* Sources */ = {
@@ -311,6 +255,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -368,6 +313,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -379,7 +325,6 @@
 		};
 		ED2C687522BF5EA400D55E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 936FD374080F2134F71D458C /* Pods-RxSwiftConnect.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -400,6 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.megazy.rxswiftconnect;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -408,7 +354,6 @@
 		};
 		ED2C687622BF5EA400D55E02 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24C529CBE51A7F47C2995ECA /* Pods-RxSwiftConnect.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -429,6 +374,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.megazy.rxswiftconnect;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -456,6 +402,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE5972B427DDC1D70040EB3D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+		FE5972B927DDC3E30040EB3D /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE5972B727DDC1D70040EB3D /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE5972B427DDC1D70040EB3D /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		FE5972BA27DDC3E30040EB3D /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE5972B927DDC3E30040EB3D /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED2C686322BF5EA400D55E02 /* Project object */;
 }

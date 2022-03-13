@@ -18,8 +18,6 @@ public struct RequestParameterDefault {
 
 public struct RequestParameter {
   
-  //public static var defaults:RequestParameterDefault = RequestParameterDefault()
-  
   public enum HttpMethod:String {
     case get = "GET"
     case post = "POST"

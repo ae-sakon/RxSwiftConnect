@@ -19,7 +19,11 @@ let package = Package(
         .target(
             name: "RxSwiftConnect",
             dependencies: ["RxSwift", "SwiftyGif"],
-            path: "RxSwiftConnect"
+            path: "RxSwiftConnect",
+            exclude: ["RxSwiftConnect/2.2.0", "Info.plist"],
+            resources: [
+                .process("Resource/loading.gif")
+            ]
         )
         
     ]

@@ -48,19 +48,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01CB39C9DCCE49EF6DA5F5E0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		ED2C686222BF5EA400D55E02 = {
 			isa = PBXGroup;
 			children = (
 				ED2C686E22BF5EA400D55E02 /* RxSwiftConnect */,
 				ED2C686D22BF5EA400D55E02 /* Products */,
-				01CB39C9DCCE49EF6DA5F5E0 /* Pods */,
 				FB718FC320936F4CFA3C98AE /* Frameworks */,
 			);
 			sourceTree = "<group>";

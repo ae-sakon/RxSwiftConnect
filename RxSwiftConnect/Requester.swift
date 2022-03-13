@@ -7,7 +7,10 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
+
+#if canImport(UIKit)
+import UIKit
+#endif
 
 public typealias DecodError = Decodable & ErrorInfo
 
@@ -55,7 +58,7 @@ public class Requester:NSObject{
         return  self.call(requestParameter,config: sessionConfig,isPreventPinning: preventPinning)
         
     }
-    
+    #if canImport(UIKit)
     public func postBoundary<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,loading:Bool = true, header:[String:String]? = nil, dataBoundary:BoundaryCreater.DataBoundary? = nil) -> Observable<Result<DataResult, CustomError>>{
         
         let boundaryCreater = BoundaryCreater()
@@ -74,6 +77,8 @@ public class Requester:NSObject{
         
         return  self.callUpload(requestParameter,config: sessionConfig,isPreventPinning: preventPinning, dataUploadTask : data)
     }
+    
+    #endif
     
     public func get<DataResult:Decodable, CustomError:DecodError>(path:String,sendParameter:Encodable? = nil,loading:Bool = true) -> Observable<Result<DataResult, CustomError>>{
         
@@ -105,11 +110,13 @@ public class Requester:NSObject{
     }
     
     func setupLoading(isShow:Bool){
+#if canImport(UIKit)
         DispatchQueue.main.async {
             if isShow, let topView = UIApplication.topViewController(){
                 Loading.shared.show(viewController: topView)
             }
         }
+#endif
     }
     
     
@@ -180,11 +187,13 @@ public class Requester:NSObject{
     
     
     func hideLoading(){
+        #if canImport(UIKit)
         DispatchQueue.main.async {
             if let topView = UIApplication.topViewController(){
                 Loading.shared.hide(viewController: topView)
             }
         }
+#endif
     }
 }
 extension Encodable {
@@ -239,7 +248,7 @@ extension Dictionary where Key == String, Value == Any {
         }
     }
 }
-
+#if canImport(UIKit)
 extension UIApplication {
     class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         
@@ -260,6 +269,7 @@ extension UIApplication {
     }
     
 }
+#endif
 
 
 extension Requester{

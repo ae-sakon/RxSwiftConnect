@@ -6,6 +6,9 @@
 //
 
 import Foundation
+#if canImport(UIKit)
+import UIKit
+#endif
 
 public struct RequestParameterDefault {
   
@@ -95,7 +98,7 @@ extension RequestParameter {
     
    
 }
-
+#if canImport(UIKit)
 public class BoundaryCreater {
     private var data = Data()
     private let boundary = UUID().uuidString
@@ -175,6 +178,8 @@ public class BoundaryCreater {
         case vdo(_ key:String,_ urlFile:URL)
     }
 }
+
+#endif
 
 
 extension Data {

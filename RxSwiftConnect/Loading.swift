@@ -8,6 +8,11 @@
 
 import Foundation
 import SwiftyGif
+#if canImport(UIKit)
+import UIKit
+
+
+
 class Loading {
     static let shared  = Loading()
     
@@ -40,3 +45,4 @@ class Loading {
         
     }
 }
+#endif
